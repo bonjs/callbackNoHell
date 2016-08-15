@@ -1,2 +1,2 @@
 # ThePromise
-自己实现的Promise，欢仰探讨
+自己实现的Promise，欢仰探讨!
