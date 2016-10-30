@@ -27,8 +27,4 @@ function f3(f) {
     });
 }
 
-new ThePromise([
-	f2,
-	f1,
-	f3,
-]);
+thePromise(f2, f1, f3);
