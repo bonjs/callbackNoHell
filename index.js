@@ -1,25 +1,28 @@
 
 function f1(f) {
-    $.get('data.json?type=1', {}, function(d) {
+    $.get('data/step1.json', {}, function(d) {
     	if(d.success) {
-    		f(true, 'step1成功');
+			console.log('step1成功');
+    		f(true, d.step2Id);	// 下个函数请示可能依赖这次的请求结果
     	} else {
     		f(false, 'step1失败');
     	}
     });
 }
 function f2(f) {
-    $.get('data.json?type=2', {}, function(d) {
+    $.get('data/step2.json', {}, function(d) {
     	if(d.success) {
-    		f(true, 'step2成功');
+			console.log('step2成功');
+    		f(true, d.step3Id);	// 下个函数请示可能依赖这次的请求结果
     	} else {
     		f(false, 'step2失败');
     	}
     });
 }
 function f3(f) {
-    $.get('data.json?type=3', {}, function(d) {
+    $.get('data/step3.json', {}, function(d) {
     	if(d.success) {
+			console.log('step3成功');
     		f(true, 'step3成功');
     	} else {
     		f(false, 'step3失败');
@@ -27,4 +30,4 @@ function f3(f) {
     });
 }
 
-thePromise(f2, f1, f3);
+bonPromise([f2, f1, f3]);

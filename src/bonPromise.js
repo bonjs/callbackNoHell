@@ -12,8 +12,6 @@ ThePromise.prototype.action = function(fns) {
 	});
 };
 
-*/
-
 var thePromise = function() {
 	
 	var _f = arguments.callee;
@@ -25,3 +23,19 @@ var thePromise = function() {
 		result && _f.apply(null, fns);
 	});
 }
+*/
+
+
+bonPromise = function(fns) {
+	var _promise = arguments.callee;
+	
+	var sliceProto = Array.prototype.slice;
+	
+	var params = [function(result) {
+		result && _promise.apply(null, [fns].concat(sliceProto.apply(arguments)));
+	}].concat(sliceProto.call(arguments, 1));
+	
+	var fn = fns.shift();
+	fn && fn.apply(null, params);
+};
+
