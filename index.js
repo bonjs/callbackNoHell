@@ -5,7 +5,7 @@ function f1(f) {
 			console.log('step1成功');
     		f(true, d.step2Id);	// 下个函数请示可能依赖这次的请求结果
     	} else {
-    		f(false, 'step1失败');
+    		f(false);
     	}
     });
 }
@@ -15,7 +15,7 @@ function f2(f) {
 			console.log('step2成功');
     		f(true, d.step3Id);	// 下个函数请示可能依赖这次的请求结果
     	} else {
-    		f(false, 'step2失败');
+    		f(false);
     	}
     });
 }
@@ -25,7 +25,7 @@ function f3(f) {
 			console.log('step3成功');
     		f(true, 'step3成功');
     	} else {
-    		f(false, 'step3失败');
+    		f(false);
     	}
     });
 }
