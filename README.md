@@ -1,18 +1,16 @@
-# bonPromise
-自己实现的Promise，欢仰探讨!
-
-### bonPromise.js
+# callbackNoHell
+callback, but no hell !!!
 
 ### 启动
 ~~~ javascript
-git clone https://github.com/bonjs/bonPromise.git
+git clone https://github.com/bonjs/callbackNoHell.git
 npm install
 node app
 ~~~
 
 ### 源码
 ~~~ javascript
-var bonPromise = function(fns) {
+var callbackNoHell = function(fns) {
 	var _promise = arguments.callee;
 	
 	var sliceProto = Array.prototype.slice;
@@ -61,6 +59,6 @@ function f3(f) {
     });
 }
 
-bonPromise([f2, f1, f3]);
+callbackNoHell([f2, f1, f3]);
 ~~~
 
